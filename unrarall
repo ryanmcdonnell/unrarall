@@ -504,7 +504,10 @@ while [ -n "$1" ]; do
   else
     #Handle mandatory argument
     DIR="$1"
-
+    if [ -f "${DIR}" ]; then
+      DIR=$(dirname "${DIR}")
+      message info "Using \"$DIR\" as source instead of file"
+    fi
   fi
     shift
 done
